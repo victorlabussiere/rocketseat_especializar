@@ -107,5 +107,27 @@ promessa
     .then(result => console.log(result))
     .catch(erro => console.log(erro))
     .finally(() => console.log('Fim'))
-    
+
+```
+
+>>> Promises com Fetch
+
+- Usando uma API do github para buscar um arquivo Json
+- Dentro do Javascript já temos um web api que é o fetch
+- O fetch é uma função que busca o seu parâmetro
+
+```js
+// arquivo fetch-api/fetch.js
+const url = "https://api.github.com/users/victorlabussiere"
+const body = document.querySelector('body')
+console.log(body)
+
+// fetch is an browser method, it wont work inside nodejs...
+var response = fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        body.textContent += `The request response is ${data.name}`
+        console.log(data)
+    })
+// Retorno de API via promise
 ```
