@@ -9,4 +9,3 @@ var response = fetch(url)
         body.textContent += `The request response is ${data.name}`
         console.log(data)
     })
-
