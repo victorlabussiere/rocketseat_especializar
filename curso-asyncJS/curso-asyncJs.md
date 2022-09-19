@@ -223,3 +223,20 @@ async function start (){
 
 start().catch(e => e.message) // O methodo async e await são promises, portanto, é possível encadear outros métodos de pormises como o catch e novos fetchs durante a execução da função.
 ```
+
+>>> Async / Await com axios
+- A ideia se repete com o uso da biblioteca axios, entretanto, não é necessário aplicar o método json() uma vez que o axios já retorna a reponse em js.
+
+```js
+
+import axios from 'axios'
+
+async function fetchRepos(){
+    const url = "https://api.github.com/users/victorlabussiere" 
+    const user = await axios.get(url)
+    const repos = await axios.get(user.data.repos_url)
+    console.log(e)
+}
+
+fetchRepos()
+```
