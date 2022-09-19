@@ -8,12 +8,10 @@ fetch(gitName)
     .catch(err => err.message)
 
 async function start (){
-    const response = await fetch(url) // feito o requerimento
-    const user = await response.json() // resposta traduzida
-    const reposResponse = await fetch(user.repos_url) // feito novo requerimento em cima da resposta
-    const repos = await reposResponse.json() // tradução da nova resposta
-        // todos os processos passam por encapsulamento de forma sincrona onde cada etapa espera a resposta da anterior
+    const user = await fetch(url).json() // requeriment ao site com resposta traduzida pelo json()
+    const repos = await fetch(user.repos_url).json() // requerimento em cima da primeria resposta ja traduzida pelo json
+        // todos os processos passam por encapsulamento, fazendo o código ter um formato mais "síncrono".
     console.log(repos) 
 }
 
-start().catch(e => e.message)
+start().catch(e => e.message) // O methodo async e await são promises, portanto, é possível encadear outros métodos de pormises como o catch e novos fetchs durante a execução da função.
