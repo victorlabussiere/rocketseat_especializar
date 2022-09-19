@@ -206,22 +206,20 @@ console.log('Mensagens escritas após a invocação da promise para fins de comp
 ```js
 // arquivo fetch-async.js
 // por padrão, uma função fetch tem o seguinte formato
+var gitName = "https://api.github.com/users/victorlabussiere"
 var url = "https://api.github.com/users/victorlabussiere"
 
-fetch(url)
+fetch(gitName)
     .then( response => response.json()) // recebemos a resposta do fetch e aplicamos json()
-    .then( data => fetch(data.repos_url)) // recebemos os dados do retorno da função e fazemos novos pedidso
-    .then(res => res.json()) // mais uma vez a resposta é adaptada pela function json()
-    .catch( err => console.log(err.message)) // uma resposta em caso de erro tb é encadeada
+    .then(data => console.log(data.name))
+    .catch(err => err.message)
 
 async function start (){
-    const response = await fetch(url) // feito o requerimento
-    const user = await response.json() // resposta traduzida
-    const reposResponse = await fetch(user.repos_url) // feito novo requerimento em cima da resposta
-    const repos = await reposResponse.json() // tradução da nova resposta
-        // todos os processos passam por encapsulamento de forma sincrona onde cada etapa espera a resposta da anterior
+    const user = await fetch(url).json() // requeriment ao site com resposta traduzida pelo json()
+    const repos = await fetch(user.repos_url).json() // requerimento em cima da primeria resposta ja traduzida pelo json
+        // todos os processos passam por encapsulamento, fazendo o código ter um formato mais "síncrono".
     console.log(repos) 
 }
-start().catch(e => e.message)
 
+start().catch(e => e.message) // O methodo async e await são promises, portanto, é possível encadear outros métodos de pormises como o catch e novos fetchs durante a execução da função.
 ```
