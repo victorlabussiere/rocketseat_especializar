@@ -69,7 +69,7 @@
 - Framework para aplicativos web;
 - Possui métodos HTTPS
 
-## Criando server
+## Criando Server
 
 * Iniciando express com require()
 - Após a instlação do framework Expresse, é necessário importar o módulo para alguma aplicação JS
@@ -79,4 +79,17 @@ const express = require('express') // importação dos métodos express
 const app = express() // encapsulamento para o uso dos métodos
 
 app.listen('3000') // criação do server com uso do método listen()
+```
+## Criando Rotas
+
+- O navegador só entende a rota GET() e exibe o conteúdo na tela
+- Para criar um conteúdo utilizamos o método express .route('/') -> a '/' é o padrão index do navegador;
+- - o método indicará o caminho que o navegador irá fazer e o que encontrará nele;
+- Para indicar o que será encontrado utiliza-se o método get, junto da dos argumentos que podem ser passados que são requisição e resposta, retornando o conteúdo da rota.
+- O conteúdo, por sua vez, é retornado através de outro método, o send(), é aplicado de acordo com a finaliade do que foi extraido com o get(). Ou uma requisição ou uma resposta.
+```js 
+//temos 
+app.route('/').get((req, res) => res.send('content shown')) 
+// o navegador então acessará a rota '/', encontrará uma resposta ou requisição com o get
+// e receberá uma mensagem como resposta através do res.send()
 ```
