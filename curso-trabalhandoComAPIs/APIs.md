@@ -96,3 +96,18 @@ app.route('/').get((req, res) => res.send('content shown'))
 ```
 
 ## POST
+* Criando post()
+- O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
+- Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
+- O post é um método onde o navegador realiza uma requisição para publicar no servidor.
+- A mensagem vem em seu BODY que, geralmente e no caso do curso, está em JSON;
+- Ao acessar a rota da requisição, ele passará por um processo onde os seus dados serão convertidos para objetos JS;
+- Essa etapa se chama * middleware * e utiliza o método express use()
+
+```js
+// criamos a ponte aqui
+app.use(express.json()) // nessa instrução, estamos mandando toda a aplicação utilizar um método dentro do objeto 'express'. Dessa forma, o conteúdo JSON que chegar através do express já estará pronto para a leitura do JS
+
+app.route('/').post((req, res) => console.log(req.body))
+// o navegador realiza uma leitura linear, acessando da esquerda para a direita. Porém, ao chegar no método desejado, aplicará o json() antes de prosseguir.
+```
