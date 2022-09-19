@@ -13,7 +13,7 @@
 - Exemplo real:
 - - *Customer* <= Submit oredr / Response => *Online Store* <= Contact / Response => *Payment Gateway*
 
-## JSON - Conhecendo o format0
+## JSON - Conhecendo o formato
 - JSON é um formato de arquivo leve feito para troca de dados;
 - Fácil para humanos lerem e escreverem e para máquinas extrair dados interessantes pro sistema;
 - Pode ser usado por qualquer linguagem;
@@ -57,3 +57,26 @@
 - Programa que será usado durante o curso para realizar as requisições pelo navegador.
 - É um site com recursos básicos como criar coleções de requisições
 - Por padrão, só é possível realizar o método GET através do navegador. O uso do Insominia permite realizar as demais requisições e métodos HTTP;
+
+## API no backend
+
+* Iniciando projeto em NodeJS
+- git init -y em uma nova pasta para criar um projeto do curso;
+
+* Express
+- Conjunto de arquivo com códigos que será baixado para o projeto Node;
+- Baixaremos recursos desse framework para auxiliar no momento de criar uma aplicação;
+- Framework para aplicativos web;
+- Possui métodos HTTPS
+
+## Criando server
+
+* Iniciando express com require()
+- Após a instlação do framework Expresse, é necessário importar o módulo para alguma aplicação JS
+
+```js
+const express = require('express') // importação dos métodos express
+const app = express() // encapsulamento para o uso dos métodos
+
+app.listen('3000') // criação do server com uso do método listen()
+```
