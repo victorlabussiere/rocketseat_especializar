@@ -1,15 +1,15 @@
-### JavaScript Async
->>> Sistema síncrono vs Sistema Asyn
-> Sistema síncrono
+# JavaScript Async
+## Sistema síncrono vs Sistema Async
+* Sistema síncrono
 - Um sistema síncrono (synchronous) é uma tarefa que se conclui em cadeia, logo após outra tarefa e assim suscesivamente;
 - Por padrão, o Javascript é um sistema síncrono.
 
-> Sistema Async
+* Sistema Async
 - Num sistema assíncrono (asynchronous), as tarefas são executadas de maneira independente uma da outra
 - O Javascript pode usar o assíncronismo em seu favor
 
->>> Conceito de Callback
-> Funções aceitam qualquer tipo de dado como argumento, inclusive outra função
+## Conceito de Callback
+* Funções aceitam qualquer tipo de dado como argumento, inclusive outra função
 
 ```js
 //arquivo callback.js
@@ -39,7 +39,7 @@ console.log('depois da callback')
 - Call back significa 'chame de volta';
 - Ou seja, uma função é chamada após a execução das instruções de uma outra função.
 
->>> setTimeout (function, delay)
+## setTimeout (function, delay)
 - O setTimeout é uma função que recebe outra função como argumento e um tempo para ser executada.
 - A função a ser executada dentro do settimeout é uma callback, o segundo argumento é o tempo de espera para a chamada da callback;
 
@@ -51,8 +51,8 @@ console.log('mensagem aleatória impressa após a execução da função, mas n�
 
 ```
 
->>> Conectando API com HTTPS e Callback
-> Revisando aprendizado
+## Conectando API com HTTPS e Callback
+* Revisando aprendizado
 ```js
 // arquivo revisando.js
 const https = require('https')
@@ -69,20 +69,20 @@ console.log('Conectando API')
 - Em sistemas síncronos, a execução das tarefas dependem do êxito da anterior, no caso do exemplo acima, o sistema não interrompe o seu funcionamento enquanto não obtêm a resposta da API.
 - A função get, por receber uma função callback, é deixada em um outro plano enquanto o JS segue a leitura do escopo global.
 
->>> Introdução à Promises com JS
->> Promise = Promessa
+## Introdução à Promises com JS
+* Promise = Promessa
 - Em resumo, promise é um objeto JS com a promessa de que algo será realizado
 - É usado para operações assíncronas
 - - Carregar um arquivo
 - - Leitura de uma API
 
->> Promise e estágios
+* Promise e estágios
 - Pending: Estado inicial, assim que o Objeto da promessa é iniciado;
 - Fulfilled: A promessa foi concluída com sucesso;
 - Rejected: A promessa foi rejeitada, houve um erro;
 - Settled: Seja com sucesso ou com erra, ela fo finalmente concluída.
 
->>> Promises no código
+## Promises no código
 ```js
 // arquivo promise.js
 // A promessa de que algo irá acontecer
@@ -110,7 +110,7 @@ promessa
 
 ```
 
->>> Promises com Fetch
+## Promises com Fetch
 
 - Usando uma API do github para buscar um arquivo Json
 - Dentro do Javascript já temos um web api que é o fetch
@@ -132,11 +132,11 @@ var response = fetch(url)
 // Retorno de API via promise
 ```
 
->>> Axius JS
+## Axius JS
 - O Axius é uma biblioteca HTTP client tanto pro browser quanto pro nodejs, baseado em promises.
 - Promises, por padrão, já existem no Browser, mas no node pode ficar confuso. Por tanto, o uso do Axius é uma maneira viável para o uso de protocolos http com nodejs
 
->>> Executando Promises em paralelo com Promise all
+## Executando Promises em paralelo com Promise all
 ```js
 import axios from 'axios'
 Promise.all([           // promise.all executa 2 promises simultâneas em formato de array.
@@ -150,7 +150,7 @@ Promise.all([           // promise.all executa 2 promises simultâneas em format
     .catch(err => console.log(err.message)) // mensagem default de erro
 ```
 
->>> Async / Awayt
+## Async / Awayt
 
 - Maneira de escrever promises
 - Syntactic sugar ( maneira mais simples de fazer uma promise )
@@ -201,7 +201,7 @@ start() // isso signfica que a função start() apenas iniciará sua tarefa apó
 console.log('Mensagens escritas após a invocação da promise para fins de comparação')
 ```
 
->>> Async / Await com fetch
+## Async / Await com fetch
 
 ```js
 // arquivo fetch-async.js
@@ -224,7 +224,7 @@ async function start (){
 start().catch(e => e.message) // O methodo async e await são promises, portanto, é possível encadear outros métodos de pormises como o catch e novos fetchs durante a execução da função.
 ```
 
->>> Async / Await com axios
+## Async / Await com axios
 - A ideia se repete com o uso da biblioteca axios, entretanto, não é necessário aplicar o método json() uma vez que o axios já retorna a reponse em js.
 
 ```js
