@@ -1,19 +1,19 @@
-*** Curso - Trabalhando com APIs ***
+# Curso - Trabalhando com APIs 
 
-* Por que aprender API? 
+## Por que aprender API? 
 - Nos ajudam a trocar informações entre sistemas;
 - Não necessáriamente sistemas fechados entre uma mesma empresa;
 - É possível acessar sistemas públicos e trabalhar com suas informaçãoes;
 - Exemplo: login com o google;
 - A sua principal funcionalidade é promover comunicação entre sistemas de forma *PADRONIZADA*.
 
-* O que é API? 
+## O que é API? 
 - Serviço de requerimentos que promove a comunicação entre cliente e servidor;
 - Responsável pelo fluxo de requisições e respostas de um sistema;
 - Exemplo real:
 - - *Customer* <= Submit oredr / Response => *Online Store* <= Contact / Response => *Payment Gateway*
 
-* JSON - Conhecendo o format0
+## JSON - Conhecendo o format0
 - JSON é um formato de arquivo leve feito para troca de dados;
 - Fácil para humanos lerem e escreverem e para máquinas extrair dados interessantes pro sistema;
 - Pode ser usado por qualquer linguagem;
