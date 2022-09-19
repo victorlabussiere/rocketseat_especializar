@@ -200,3 +200,28 @@ start() // isso signfica que a função start() apenas iniciará sua tarefa apó
 
 console.log('Mensagens escritas após a invocação da promise para fins de comparação')
 ```
+
+>>> Async / Await com fetch
+
+```js
+// arquivo fetch-async.js
+// por padrão, uma função fetch tem o seguinte formato
+var url = "https://api.github.com/users/victorlabussiere"
+
+fetch(url)
+    .then( response => response.json()) // recebemos a resposta do fetch e aplicamos json()
+    .then( data => fetch(data.repos_url)) // recebemos os dados do retorno da função e fazemos novos pedidso
+    .then(res => res.json()) // mais uma vez a resposta é adaptada pela function json()
+    .catch( err => console.log(err.message)) // uma resposta em caso de erro tb é encadeada
+
+async function start (){
+    const response = await fetch(url) // feito o requerimento
+    const user = await response.json() // resposta traduzida
+    const reposResponse = await fetch(user.repos_url) // feito novo requerimento em cima da resposta
+    const repos = await reposResponse.json() // tradução da nova resposta
+        // todos os processos passam por encapsulamento de forma sincrona onde cada etapa espera a resposta da anterior
+    console.log(repos) 
+}
+start().catch(e => e.message)
+
+```
