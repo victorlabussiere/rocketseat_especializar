@@ -188,3 +188,17 @@ app.route('/:var').get((req, res) => {                  // requisição com vari
 
 ```
   - Importante: o uso de '/' após a variável indica uma nova rota para o navegador fazer requisição.
+
+### Query Params:
+* Outra forma de passar parâmetros pela URL.
+  - Querys são identificados na URL através da '?';
+   - Dessa forma, podemos criar a variável pelo navegador dando valores para variáveis;
+  - Podemos adicionar outras variáveis usando '&';
+  - Portanto o Servidor recebe a variável pronta do client e retorna dentro do métod HTTP;
+* Exemplo:
+```js 
+
+app.route('/').get( (req, res) => res.send( req.query ))      // retorna a variável na request do navegador
+app.route('/').get( (req, res) => res.send( req.query.nome )) // retorna uma variável marcada pelo navegador;
+
+```
