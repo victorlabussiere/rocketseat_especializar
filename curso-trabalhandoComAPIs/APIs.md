@@ -151,3 +151,22 @@ app.route('/:id').delete((req, res) => {    // client faz REQUEST do método del
 }) // nesse caso, o método usado dentro do delete foi um console.log() mas pode ser um método para deletar algum id específico;
 
 ```
+## Parâmetros nas requisições HTTP
+### O que são parâmetros
+* São formas de passar para o nosso código informações que não estavam lá antes
+  - São requisições feitas para API cujo o nome técnico é Parâmetro
+
+### Body Params:
+* É uma forma de enviar informações para uma API sem que fiquem na URL; 
+  - Ele é o corpo dentro de uma requisição POST, PUSH ou PATCH;
+  - Dentro dele conterá as informações desejadas de acordo com o método em json,=;
+  - É no código do servidor que ocorre a tradução do json para objeto e objeto para json
+
+* Exemplificando:
+```js 
+// arquivo body_params
+app.route('/').post( (req, res) => {            // requisição
+    let body = req.body                         // RESPONSE: objeto body dentro da requisição
+    res.send(console.log(body))
+})
+```
