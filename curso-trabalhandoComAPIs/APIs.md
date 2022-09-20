@@ -1,19 +1,19 @@
 # Curso - Trabalhando com APIs 
 
-## Por que aprender API? 
+### Por que aprender API? 
 - Nos ajudam a trocar informações entre sistemas;
 - Não necessáriamente sistemas fechados entre uma mesma empresa;
 - É possível acessar sistemas públicos e trabalhar com suas informaçãoes;
 - Exemplo: login com o google;
 - A sua principal funcionalidade é promover comunicação entre sistemas de forma *PADRONIZADA*.
 
-## O que é API? 
+### O que é API? 
 - Serviço de requerimentos que promove a comunicação entre cliente e servidor;
 - Responsável pelo fluxo de requisições e respostas de um sistema;
 - Exemplo real:
-- - *Customer* <= Submit oredr / Response => *Online Store* <= Contact / Response => *Payment Gateway*
+  - *Customer* <= Submit oredr / Response => *Online Store* <= Contact / Response => *Payment Gateway*
 
-## JSON - Conhecendo o formato
+# JSON - Conhecendo o formato
 - JSON é um formato de arquivo leve feito para troca de dados;
 - Fácil para humanos lerem e escreverem e para máquinas extrair dados interessantes pro sistema;
 - Pode ser usado por qualquer linguagem;
@@ -58,7 +58,7 @@
   - É um site com recursos básicos como criar coleções de requisições
   - Por padrão, só é possível realizar o método GET através do navegador. O uso do Insominia permite realizar as demais requisições e métodos HTTP;
 
-## API no backend
+# API no backend
 
 * Iniciando projeto em NodeJS
   - git init -y em uma nova pasta para criar um projeto do curso;
@@ -80,7 +80,7 @@ const app = express() // encapsulamento para o uso dos métodos
 
 app.listen('3000') // criação do server com uso do método listen()
 ```
-## GET
+### GET
 * Criando rotas:
   - O navegador só entende a rota GET() e exibe o conteúdo na tela
   - Para criar um conteúdo utilizamos o método express .route('/') -> a '/' é o padrão index do navegador;
@@ -95,7 +95,7 @@ app.route('/').get((req, res) => res.send('content shown'))
 // Neste caso, recebeu uma mensagem via send() e exibiu na tela
 ```
 
-## POST
+### POST
 * Criando post()
   - O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
   - Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
@@ -108,14 +108,15 @@ app.route('/').get((req, res) => res.send('content shown'))
 
 // arquivo POST.js
 // O navegador não executa o método POST, apenas o GET. Portanto será usado o APP insomnia;
-// POST é uma requisição do navegador
+// REQUISIÇÃO SEMPRE VEM DO NAVEGADOR!
 // O ideal é que o conteúdo da requisição esteja em JSON, para isso determinamos o uso de json via método use()
 // Essa etapa de determinar o uso de json se chama MIDDLEWARE e serve para transformar os dados recebidos via API de json para objetos ou de objetos para json;
 app.use(express.json())
 
-app.route('/').post((req, res) => console.log(req.body)) // a requisição que temos aqui é que seja enviado ao servidor uma mensagem no console equivalente ao body do navegador. ( no caso do insomnia, o arquivo json será impresso no console do servidor )
+app.route('/').post((req, res) => console.log(req.body))
+
 ```
-## PULL
+### PULL
 * O que é? 
   - É um método que serve para atualizar informações no servidor;
 
@@ -136,4 +137,19 @@ app.route('/').put((req, res) => {
     res.send(author)                // RESPOSTA: navegador envia uma msg para o servidor;
 })
 
+```
+
+### DELETE  
+* Irá deletar alguma informação no banco de dados ou servidor;
+  - Para acessar os dados a serem deletados, usamos os parâmetros do navegador como referência;
+  - O delete é uma requisição de rota;
+
+```js
+
+//arquivo DELETE.js
+app.route('/:id').delete((req, res) => {        // rota de procura da função DELETE
+    res.send(req.params.id)                     // campo de instruções de req e res.
+    console.log(req.params.id)                  // Aqui pode entrar um comando para deletar algum conteúdo no servidor
+})
+  
 ```
