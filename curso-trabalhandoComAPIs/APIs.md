@@ -39,7 +39,7 @@
                 "volei",
                 "netflix"
             ]    
-        } // os valores das chaves não podem conter espaços
+        }
     }
     
 }
