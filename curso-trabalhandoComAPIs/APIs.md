@@ -47,32 +47,32 @@
 - Dessa forma, criar um arquivo para ser consumido por um API torna-se simples para se escrever e ler, e rápido para uma máquina rastrear as informações.
 
 * Métodos HTTP - Métodos presentes no próprio navegador
-- GET: É responsável por realizar um requerimento pelo navegador.
-- POST: É usado quando se deseja enviar informações para uma API;
-- DELETE: É usado para passar identificadores, para uma API, de um registro que deve ser apagado;
-- PUT: É usado para enviar atualizações para um servidor através de uma API;
-- PATCH: Também é usado para realiar atualizações via API. A diferença para o PUT é que o PATCH envia apenas atualizações de um único registro enquanto o PUT pode enviar multiplos registros a serem atualizados por vez.
+  - GET: É responsável por realizar um requerimento pelo navegador.
+  - POST: É usado quando se deseja enviar informações para uma API;
+  - DELETE: É usado para passar identificadores, para uma API, de um registro que deve ser apagado;
+  - PUT: É usado para enviar atualizações para um servidor através de uma API;
+  - PATCH: Também é usado para realiar atualizações via API. A diferença para o PUT é que o PATCH envia apenas atualizações de um único registro enquanto o PUT pode enviar multiplos registros a serem atualizados por vez.
 
 * Insominia
-- Programa que será usado durante o curso para realizar as requisições pelo navegador.
-- É um site com recursos básicos como criar coleções de requisições
-- Por padrão, só é possível realizar o método GET através do navegador. O uso do Insominia permite realizar as demais requisições e métodos HTTP;
+  - Programa que será usado durante o curso para realizar as requisições pelo navegador.
+  - É um site com recursos básicos como criar coleções de requisições
+  - Por padrão, só é possível realizar o método GET através do navegador. O uso do Insominia permite realizar as demais requisições e métodos HTTP;
 
 ## API no backend
 
 * Iniciando projeto em NodeJS
-- git init -y em uma nova pasta para criar um projeto do curso;
+  - git init -y em uma nova pasta para criar um projeto do curso;
 
 * Express
-- Conjunto de arquivo com códigos que será baixado para o projeto Node;
-- Baixaremos recursos desse framework para auxiliar no momento de criar uma aplicação;
-- Framework para aplicativos web;
-- Possui métodos HTTPS
+  - Conjunto de arquivo com códigos que será baixado para o projeto Node;
+  - Baixaremos recursos desse framework para auxiliar no momento de criar uma aplicação;
+  - Framework para aplicativos web;
+  - Possui métodos HTTPS
 
 ## Criando Server
 
 * Iniciando express com require()
-- Após a instlação do framework Expresse, é necessário importar o módulo para alguma aplicação JS
+  - Após a instlação do framework Expresse, é necessário importar o módulo para alguma aplicação JS
 
 ```js
 const express = require('express') // importação dos métodos express
@@ -82,11 +82,11 @@ app.listen('3000') // criação do server com uso do método listen()
 ```
 ## GET
 * Criando rotas:
-- O navegador só entende a rota GET() e exibe o conteúdo na tela
-- Para criar um conteúdo utilizamos o método express .route('/') -> a '/' é o padrão index do navegador;
-- - o método route() indicará o caminho que o navegador irá fazer e o que encontrará nele;
-- Quando o navegador encontrar a rota desejada, ele receberá outro método, o get(), que irá apresentar argumentos que retornarão para ele novas requisições ou uma resposta;
-- Podemos linkar novos métodos nos argumentos do get de acordo com a necessidade do sistema. Como exemplo, será enviado uma resposta ao navegador através do método send('content shown')
+  - O navegador só entende a rota GET() e exibe o conteúdo na tela
+  - Para criar um conteúdo utilizamos o método express .route('/') -> a '/' é o padrão index do navegador;
+    - o método route() indicará o caminho que o navegador irá fazer e o que encontrará nele;
+  - Quando o navegador encontrar a rota desejada, ele receberá outro método, o get(), que irá apresentar argumentos que retornarão para ele novas requisições ou uma resposta;
+  - Podemos linkar novos métodos nos argumentos do get de acordo com a necessidade do sistema. Como exemplo, será enviado uma resposta ao navegador através do método send('content shown')
 
 ```js 
 //temos 
@@ -97,12 +97,12 @@ app.route('/').get((req, res) => res.send('content shown'))
 
 ## POST
 * Criando post()
-- O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
-- Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
-- O post é um método onde o navegador realiza uma requisição para publicar no servidor.
-- A mensagem vem em seu BODY que, geralmente e no caso do curso, está em JSON;
-- Ao acessar a rota da requisição, ele passará por um processo onde os seus dados serão convertidos para objetos JS;
-- Essa etapa se chama * middleware * e utiliza o método express use()
+ - O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
+ - Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
+ - O post é um método onde o navegador realiza uma requisição para publicar no servidor.
+ - A mensagem vem em seu BODY que, geralmente e no caso do curso, está em JSON;
+ - Ao acessar a rota da requisição, ele passará por um processo onde os seus dados serão convertidos para objetos JS;
+ - Essa etapa se chama * middleware * e utiliza o método express use()
 
 ```js
 // criamos a ponte aqui
