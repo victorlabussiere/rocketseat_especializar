@@ -137,3 +137,19 @@ app.route('/').put((req, res) => {
 })
 
 ```
+
+## DELETE
+* Delete uma informação no servidor
+  - Método para deletar uma informação;
+  - Efetua a busca de um elemento através de identificadores registrados em parâmetros na rout da requisição
+  - Envia como resposta um method para apagar aquele parâmetro identificado
+
+```js
+
+// arquivo DELETE.js
+app.route('/:id').delete((req, res) => {    // client faz REQUEST do método delete
+    res.send(req.params.id)                 // server RESPONDE com um REQUEST do identificador
+    res.send(console.log(req.params.id))    // A partir desse identificador é possível realizar métodos
+}) // nesse caso, o método usado dentro do delete foi um console.log() mas pode ser um método para deletar algum id específico;
+
+```
