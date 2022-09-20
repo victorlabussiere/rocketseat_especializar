@@ -89,7 +89,7 @@ app.listen('3000') // criação do server com uso do método listen()
   - Podemos linkar novos métodos nos argumentos do get de acordo com a necessidade do sistema. Como exemplo, será enviado uma resposta ao navegador através do método send('content shown')
 
 ```js 
-//temos 
+// arquivo GTE.js
 app.route('/').get((req, res) => res.send('content shown')) 
 // o navegador então acessará a rota '/', e dessar rota ele ira pegar requisições ou uma resposta
 // Neste caso, recebeu uma mensagem via send() e exibiu na tela
@@ -99,15 +99,41 @@ app.route('/').get((req, res) => res.send('content shown'))
 * Criando post()
   - O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
   - Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
-  - O post é um método onde o navegador realiza uma requisição para publicar no servidor.
-  - A mensagem vem em seu BODY que, geralmente e no caso do curso, está em JSON;
+  - O post é uma requisição feita ao navegador para a postagem de um conteúdo em um servidor;
+  - O ideal é que o conteúdo enviado via POST esteja em JSON
   - Ao acessar a rota da requisição, ele passará por um processo onde os seus dados serão convertidos para objetos JS;
   - Essa etapa se chama * middleware * e utiliza o método express use()
 
 ```js
-// criamos a ponte aqui
-app.use(express.json()) // nessa instrução, estamos mandando toda a aplicação utilizar um método dentro do objeto 'express'. Dessa forma, o conteúdo JSON que chegar através do express já estará pronto para a leitura do JS
 
-app.route('/').post((req, res) => console.log(req.body))
-// o navegador realiza uma leitura linear, acessando da esquerda para a direita. Porém, ao chegar no método desejado, aplicará o json() antes de prosseguir.
+// arquivo POST.js
+// O navegador não executa o método POST, apenas o GET. Portanto será usado o APP insomnia;
+// POST é uma requisição do navegador
+// O ideal é que o conteúdo da requisição esteja em JSON, para isso determinamos o uso de json via método use()
+// Essa etapa de determinar o uso de json se chama MIDDLEWARE e serve para transformar os dados recebidos via API de json para objetos ou de objetos para json;
+app.use(express.json())
+
+app.route('/').post((req, res) => console.log(req.body)) // a requisição que temos aqui é que seja enviado ao servidor uma mensagem no console equivalente ao body do navegador. ( no caso do insomnia, o arquivo json será impresso no console do servidor )
+```
+## PULL
+* O que é? 
+  - É um método que serve para atualizar informações no servidor;
+
+```js
+
+//arquivo PUT.js
+const express = require('express')
+const app = express()
+app.listen('3000')                  // dando início ao servidor localhost:3000;
+app.use(express.json())             // middleware
+
+let author = "Victor"               // criando dados para o servidor;
+
+app.route('/').put((req, res) => {  
+    console.log(`author do servidor ANTES da response: ${author}`)
+    author = req.body.author        // REQUIRE: servidor busca um dado no navegador;
+    console.log(`author ATUALIZADO com a response: ${author}`)
+    res.send(author)                // RESPOSTA: navegador envia uma msg para o servidor;
+})
+
 ```
