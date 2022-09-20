@@ -21,9 +21,9 @@
 
 ```json
 {
-    "nome": "meu nome", // Json é formado por chaves e valores => "chave": "valor"
-    "cidade": "minha cidade", // A sintaxe é arbitrária e não registra informações que não sigam
-    "telefone": 21999999999, // O Json recebe valores booleanos, Strings, Numbers, Arrays e Objetos
+    "nome": "meu nome", 
+    "cidade": "minha cidade",
+    "telefone": 21999999999,
     "livros_favoritos": [
         "LIVRO 1",
         "LIVRO 2",
@@ -31,10 +31,10 @@
     ],
     "hobbies": {
         "semanal": "hobby semanal",
-        "fins_de_semana": {         // Os objetos dentro de um json pôdem conter outros objetos
+        "fins_de_semana": { 
             "sabado": "hobby de sabado",
             "domingo": "hobby de domingo",
-            "outros": [             // E assim sucessivamente, inclusive com outras arrays.
+            "outros": [     
                 "caminhada",
                 "volei",
                 "netflix"
