@@ -60,17 +60,16 @@
 
 ## API no backend
 
-* Instalando pacote NPM com node
-  - npm init -y em uma nova pasta para criar um projeto do curso;
+### Instalando pacote NPM com node
+- npm init -y em uma nova pasta para criar um projeto do curso;
 
-* Express
-  - Conjunto de arquivo com códigos que será baixado para o projeto Node;
-  - Baixaremos recursos desse framework para auxiliar no momento de criar uma aplicação;
-  - Framework para aplicativos web;
-  - Possui métodos HTTPS
+### Express
+- Conjunto de arquivo com códigos que será baixado para o projeto Node;
+- Baixaremos recursos desse framework para auxiliar no momento de criar uma aplicação;
+- Framework para aplicativos web;
+- Possui métodos HTTPS
 
-## Criando Server
-
+### Criando Server
 * Iniciando express com require()
   - Após a instlação do framework Expresse, é necessário importar o módulo para alguma aplicação JS
 
@@ -80,7 +79,7 @@ const app = express() // encapsulamento para o uso dos métodos
 
 app.listen('3000') // criação do server com uso do método listen()
 ```
-## GET
+### .GET
 * Criando rotas:
   - O navegador só entende a rota GET() e exibe o conteúdo na tela
   - Para criar um conteúdo utilizamos o método express .route('/') -> a '/' é o padrão index do navegador;
@@ -95,7 +94,7 @@ app.route('/').get((req, res) => res.send('content shown'))
 // Neste caso, recebeu uma mensagem via send() e exibiu na tela
 ```
 
-## POST
+### .POST
 * Criando post()
   - O navegador não executa o método post, para isso, será usado o aplicativo insomnia;
   - Ao interpretar o código, o insomnia poderá receber, postar, atualizar e executar outros métodos HTTP disponíveis.
@@ -115,7 +114,7 @@ app.use(express.json())
 
 app.route('/').post((req, res) => console.log(req.body)) // a requisição que temos aqui é que seja enviado ao servidor uma mensagem no console equivalente ao body do navegador. ( no caso do insomnia, o arquivo json será impresso no console do servidor )
 ```
-## PULL
+### .PULL
 * O que é? 
   - É um método que serve para atualizar informações no servidor;
 
@@ -138,7 +137,7 @@ app.route('/').put((req, res) => {
 
 ```
 
-## DELETE
+### .DELETE
 * Delete uma informação no servidor
   - Método para deletar uma informação;
   - Efetua a busca de um elemento através de identificadores registrados em parâmetros na rout da requisição
