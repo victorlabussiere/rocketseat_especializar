@@ -202,3 +202,35 @@ app.route('/').get( (req, res) => res.send( req.query ))      // retorna a vari�
 app.route('/').get( (req, res) => res.send( req.query.nome )) // retorna uma variável marcada pelo navegador;
 
 ```
+## Consumindo API com NodeJS
+* A API a ser consumida será do Github;
+
+### Consumindo com AXIOS;
+- O Express é um pacote que cria APIs mas não faz novos requerimentos
+  - Sendo assim, usaremos a ferramenta axios para realizar novos requerimentos pelo servidor;
+- Para instalar o axios via npm basta realizar o seguinte comando no terminal:
+
+```
+npm i axios
+```
+* Axios instalado!
+- Feito isso, basta importar para o arquivo desejado e usar o seu recurso de request HTTP;
+  - Para consumir a API do github foi usado o método get();
+   - O resultado da request no axios já vem formatado pelo método json();
+```js 
+
+// arquivo githubAPI.js
+const express = require('express')
+const app = express()
+const axios = require('axios')                                      // importação dos métodos axios
+
+app.listen('3000')                                                  // criação do servidor
+app.use(express.json())                                             // middleware
+
+app.route('/').get((req, res) => {                                 // REQUEST do navegador;
+    axios.get('https://api.github.com/users/victorlabussiere')      // RESPONSE do servidor é uma promise;
+        .then(result => res.send(result.data.name))                 // a promise retorna um 'result' que será usado como RESPONSE do navegador para o client
+        .catch(error => console.error(error))
+})
+
+```
