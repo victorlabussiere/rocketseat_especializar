@@ -60,8 +60,8 @@
 
 ## API no backend
 
-* Iniciando projeto em NodeJS
-  - git init -y em uma nova pasta para criar um projeto do curso;
+* Instalando pacote NPM com node
+  - npm init -y em uma nova pasta para criar um projeto do curso;
 
 * Express
   - Conjunto de arquivo com códigos que será baixado para o projeto Node;
