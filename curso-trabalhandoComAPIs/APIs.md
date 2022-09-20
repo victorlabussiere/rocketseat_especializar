@@ -170,3 +170,21 @@ app.route('/').post( (req, res) => {            // requisição
     res.send(console.log(body))
 })
 ```
+
+### Route Params:
+* Como pegar parâmetros pela rota?
+  - Para buscar parâmetros pela rota, criamos uma variável no momento da requisição route()
+   - a criação de uma variável se faz com ":" e o nome da variável => :variavel;
+  - O envio da resposta depende da requisição na URL do navegador;
+
+* Exemplo:
+```js 
+
+// arquivo route_params.js
+app.route('/').get((req, res) => res.send('Olá'))       // requisição sem variável;
+app.route('/:var').get((req, res) => {                  // requisição com variável no parâmetro da URL;
+    res.send(req.params.var)                            // A resposta usa essa variável;
+})
+
+```
+  - Importante: o uso de '/' após a variável indica uma nova rota para o navegador fazer requisição.
