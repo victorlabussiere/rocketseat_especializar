@@ -234,3 +234,63 @@ app.route('/').get((req, res) => {                                 // REQUEST do
 })
 
 ```
+
+## API no frontend com Fetch
+### Conhecendo o Fetch
+* Interface Javascript para acessar e manipular partes de um pipeline HTTP
+ - Isso quer dizer que ele é capaz de buscar uma URL para o nosso código
+ - Além disso, podemos manipular os dados retornados de acordo com a necessidade do sistema.
+
+* Exemplo: 
+ - Foi criado um servidor com o repositório do github fornecido pela rocketseat
+   - A instalação do arquivo ocorreu no diretório /projects;
+     - A instalação foi feita com o seguinte comando git:
+       - `git submodule add git@github.com:jakeliny/node-api-discover.git`
+       - E o seu pacote npm foi atualizado com o comando:
+         - `npm update`
+  - Para iniciar o servidor, utilize o comando 'node' na pasta *node-api-discover/*
+    -  `node index.js`
+
+##### Iniciando a API na pasta projects/
+ - Foi criado um diretório src/ para alocar o arquivo Javascript index.js
+ - Foi criado um arquivo index.html para exibir as respostas das requisições feitas no frontend;
+
+```html
+<!-- arquivo projects/index.html-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Consumindo API com Fetch</title>
+</head>
+
+<body>
+    <div id="renderApiResult"></div>
+
+    <script src="./src/index.js"></script>
+</body>
+
+</html>
+
+```
+- E depois é implementado o script do projeto:
+```js
+// arquivo projects/src/index.js
+const body = document.getElementById('renderApiResult')
+const url = 'http://localhost:5500/api'
+
+function getUsers() {
+    fetch(url)                                          // busca de api na url 
+        .then(response => response.json())              // resposta filtrada pelo método json()
+        .then(data => {
+            let user = data.users[0].name               // manipulação dos dados respondidos
+            body.textContent += user                    // impressão no body do html -> projects/index.html
+        })
+        .then(error => console.error(error))
+}
+
+getUsers() // invocação da function
+```
+- O documento tem como objetivo realizar uma requisição ao arquivo do repositório node-api-discover e retornar a resposta no arquivo index.html;
+  - no exemplo, é feita uma requisição do conteúdo dentro de um array
+    - o retorno é o conteúdo do 'name': 'Jakeliny Gracielly'.
