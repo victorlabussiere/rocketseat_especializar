@@ -1,0 +1,3 @@
+[submodule "curso-trabalhandoComAPIs/node-api-discover"]
+	path = curso-trabalhandoComAPIs/node-api-discover
+	url = git@github.com:jakeliny/node-api-discover.git
