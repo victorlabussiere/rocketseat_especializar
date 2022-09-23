@@ -41,5 +41,4 @@ function addUser(user) {
         .catch(err => console.error(err))
 }
 
-getUsers()
-getUser(2)
+console.log("Utilize a função addUser(newUser) para criar um novo usuário no sistema e depois getUser(2) para ver o novo usuários")
