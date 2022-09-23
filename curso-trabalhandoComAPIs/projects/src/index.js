@@ -6,9 +6,15 @@ function getUsers() {
         .then(response => response.json())
         .then(data => {
             let user = data.users[0].name
-            body.textContent += user            
+            body.textContent += user
         })
         .then(error => console.error(error))
+}
+
+function getUser() {
+    fetch(url)
+    .then(res => console.log(res))
+    .catch(err => console.error(err)
 }
 
 getUsers()
