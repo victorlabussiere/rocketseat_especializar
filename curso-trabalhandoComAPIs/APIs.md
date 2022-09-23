@@ -318,3 +318,37 @@ function getUser() {
 
 getUser()
 ```
+
+### POST com fetch
+- O fetch possui por padrão a requisição GET que busca rotas para o navegador, 
+- Mas é possível alterar a requisição de acordo com as necessidades do sistema,
+- O método POST pode ser aplicado para inserir informações no servidor através de seu body;
+
+* Exemplo
+  - No exemplo a seguir, será introduzido um objeto via json ao conteúdo principal via função
+  - Esse objeto será renderizado no html
+
+```js
+const newUser = {
+    name: 'Victor Labussiere',
+    avatar: 'https://avatars.githubusercontent.com/u/104212002?v=4',
+    city: 'Nova Iguaçu'
+}
+
+function addUser(user) {
+    fetch(url, {
+        method: "POST",                   // método de requisição
+        body: JSON.stringify(user),       // body que chegará junto da requisiçao -> o que será postado.
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"     // tipo de aplicação para leitura de arquivo
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            alertAPI.textContent = data   // feedback de suceso no método POST
+        })
+        .catch(err => console.error(err))
+}
+
+addUser(newUser)                          // Execução da função.
+```
