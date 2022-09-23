@@ -241,6 +241,7 @@ app.route('/').get((req, res) => {                                 // REQUEST do
  - Isso quer dizer que ele é capaz de buscar uma URL para o nosso código
  - Além disso, podemos manipular os dados retornados de acordo com a necessidade do sistema.
 
+### GET
 * Exemplo: 
  - Foi criado um servidor com o repositório do github fornecido pela rocketseat
    - A instalação do arquivo ocorreu no diretório /projects;
@@ -294,3 +295,26 @@ getUsers() // invocação da function
 - O documento tem como objetivo realizar uma requisição ao arquivo do repositório node-api-discover e retornar a resposta no arquivo index.html;
   - no exemplo, é feita uma requisição do conteúdo dentro de um array
     - o retorno é o conteúdo do 'name': 'Jakeliny Gracielly'.
+
+### GET com parâmetros
+- Como executar um GET com um parâmetro? 
+  - No exemplo será usado o ID do usuário como parâmetro:
+  - O uso desse método permite buscar um elemento específico dentro de uma cadeia de dados do servidor
+  - Dessa maneira, torna-se possível acessar e retornar informações de outro sistema
+  
+```js
+
+function getUser() {
+    fetch(`${url}/1`)                               // o parâmetro utilizado foi o /1 que indica o primeiro ID
+        .then(res => res.json())
+        .then(data => {
+            userName.textContent = data.name        // Com isso, acesar as informações se torna mais simples
+            userCity.textContent = data.city
+            userAvatar.src = data.avatar
+        })
+        .catch(err => console.error(err))
+
+}
+
+getUser()
+```

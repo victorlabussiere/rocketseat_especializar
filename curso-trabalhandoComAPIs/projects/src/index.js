@@ -12,9 +12,15 @@ function getUsers() {
 }
 
 function getUser() {
-    fetch(url)
-    .then(res => console.log(res))
-    .catch(err => console.error(err)
+    fetch(`${url}/1`)
+        .then(res => res.json())
+        .then(data => {
+            userName.textContent = data.name
+            userCity.textContent = data.city
+            userAvatar.src = data.avatar
+        })
+        .catch(err => console.error(err))
+
 }
 
-getUsers()
+getUser()
