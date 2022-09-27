@@ -42,3 +42,22 @@ function addUser(user) {
 }
 
 console.log("Utilize a função addUser(newUser) para criar um novo usuário no sistema e depois getUser(2) para ver o novo usuários")
+
+function updtUser(user) {
+    fetch(`${url}/1`, {
+        method="PUT",
+        body= JSON.stringify(user),
+        headers= {
+            "Content-type": "application/json; charser=UTF-8"
+        }
+    })
+    .then(res => res.json())
+    .then(dt => alertAPI.textContent = dt)
+    .catch(err => console.error(err.message))
+}
+
+const updtUser = {
+    name: "Novo nome",
+    avatar: "",
+    city: "Nova cidade".
+}
