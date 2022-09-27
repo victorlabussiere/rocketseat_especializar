@@ -352,3 +352,25 @@ function addUser(user) {
 
 addUser(newUser)                          // Execução da função.
 ```
+
+### PUT com fetch
+
+- Podemos atualizar informações de um sistema utilizando a requisição PUT
+- A informação será atualizada com os dados enviados no body da requisição PUT via fetch
+
+```js
+function updateUser(upUser, id){                // 1o parametro = atualização ; 2o parametro = alvo
+
+  fetch(`${url}/${id}`, {                       // efetua requisição e aponta o id alvo 
+    method: "PUT"                               // definição do método PUT
+    body: upUser,                               // body da requisição com os novos dados
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(res => res.json())                    // recebendo o novo objeto e traduzindo
+    .then(data => alertAPI.textContent = data)  // feedback de update no html
+    .catch(err => console.error(err))           // feedback de erro do fetch
+}
+
+```
