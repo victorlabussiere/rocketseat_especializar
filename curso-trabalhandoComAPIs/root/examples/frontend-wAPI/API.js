@@ -41,12 +41,10 @@ function addUser(user) {
         .catch(err => console.error(err))
 }
 
-console.log("Utilize a função addUser(newUser) para criar um novo usuário no sistema e depois getUser(2) para ver o novo usuários")
-
 function updtUser(user, id) {
     fetch(`${url}/${id}`, {
         method: "PUT",
-        body:  JSON.stringify(user),
+        body: JSON.stringify(user),
         headers: {
             "Content-type": "application/json; charser=UTF-8"
         }
@@ -61,3 +59,17 @@ const upUser = {
     avatar: "",
     city: "Nova cidade"
 }
+
+function deleteUser(id) {
+    fetch(`${url}/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(res => res.json())
+        .then(dt => alertAPI.textContent = dt)
+        .catch(err => console.error(err.message))
+}
+
+console.log("functions: deleteUser(), addUser(), updtUser(), getUser() e getUsers()")
